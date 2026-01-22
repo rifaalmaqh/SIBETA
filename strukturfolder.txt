@@ -1,0 +1,47 @@
+sibeta/
+│
+├── server.js                 # File utama Express
+├── package.json
+├── .env                      # Config rahasia (MongoDB, session)
+│
+├── config/
+│   └── database.js           # Koneksi MongoDB
+│
+├── models/
+│   ├── Admin.js              # Schema admin
+│   └── Guest.js              # Schema buku tamu
+│
+├── controllers/
+│   ├── authController.js     # Logic login & logout
+│   └── guestController.js    # Logic buku tamu (API)
+│
+├── routes/
+│   ├── auth.js               # Route /login, /logout
+│   └── guest.js              # Route /api/guest
+│
+├── middleware/
+│   └── authMiddleware.js     # Proteksi halaman dashboard
+│
+├── views/                    # SEMUA HALAMAN HTML
+│   ├── landing.html          # Halaman selamat datang
+│   ├── login.html            # Login admin
+│   ├── dashboard.html        # Dashboard utama
+│   ├── guestbook.html        # Form buku tamu
+│   └── rekap.html            # Rekap buku tamu
+│
+├── public/
+│   ├── css/                  # SEMUA CSS
+│   │   ├── global.css        # CSS global
+│   │   ├── landing.css
+│   │   ├── login.css
+│   │   ├── dashboard.css
+│   │   ├── guestbook.css
+│   │   └── rekap.css
+│   │
+│   ├── js/
+│   │   └── main.js           # JS frontend (fetch API)
+│   │
+│   └── assets/
+│       └── logo.png
+│
+└── README.md
