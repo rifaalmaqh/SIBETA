@@ -1,0 +1,38 @@
+UI UX WARNA WEBSITE
+
+Primary Blue        #2F80ED
+Primary Blue Soft   #56CCF2
+Primary Blue Dark   #1C6ED5
+
+linear-gradient(90deg, #2F80ED, #56CCF2)
+
+Background Main     #F8FAFC
+Background Soft     #F1F5F9
+
+Card Background     #FFFFFF
+Card Border         #E5E7EB
+
+Text Primary        #111827
+Text Secondary      #6B7280
+Text Muted          #9CA3AF
+
+Success (Pulang)    #22C55E
+Warning             #F59E0B
+Danger              #EF4444
+
+Sidebar BG          #FFFFFF
+Sidebar Active      #2F80ED
+Sidebar Hover       #EAF2FF
+Icon Inactive       #9CA3AF
+
+
+
+Primary       #2F80ED
+Primary Soft  #56CCF2
+Background    #F8FAFC
+Card          #FFFFFF
+Border        #E5E7EB
+Text Dark     #111827
+Text Gray     #6B7280
+Success       #22C55E
+Danger        #EF4444
