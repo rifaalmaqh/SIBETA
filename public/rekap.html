@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rekap Data | SiBeta</title>
+  <link rel="stylesheet" href="css/rekap.css" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <h2 class="logo">SiBeta</h2>
+
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="datang.html">Input Tamu</a>
+      <a href="rekap.html" class="active">Rekap</a>
+      <a href="/logout" class="logout">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+    <header class="header">
+      <h1>Rekap Kunjungan</h1>
+      <p>Data tamu berdasarkan rentang tanggal</p>
+    </header>
+
+    <!-- FILTER -->
+    <section class="filter-section">
+      <div class="filter-group">
+        <label>Tanggal Mulai</label>
+        <input type="date" id="startDate">
+      </div>
+
+      <div class="filter-group">
+        <label>Tanggal Akhir</label>
+        <input type="date" id="endDate">
+      </div>
+
+      <button class="btn-primary" id="btnFilter">Tampilkan</button>
+    </section>
+
+    <!-- TABLE -->
+    <section class="table-section">
+      <h2>Hasil Rekap</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Instansi</th>
+            <th>Keperluan</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="rekapTable">
+          <tr>
+            <td colspan="5" class="loading">Silakan pilih tanggal</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>
