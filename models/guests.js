@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
 const guestSchema = new mongoose.Schema({
-  name: {
+  nama: String,
+  instansi: String,
+  keperluan: String,
+  noHp: String,
+  catatan: String,
+
+  tanggal: Date,
+  jamDatang: Date,
+  jamPulang: Date,
+
+  status: {
     type: String,
-    required: true
-  },
-  institution: String,
-  purpose: {
-    type: String,
-    required: true
-  },
-  phone: String,
-  visitDate: {
-    type: Date,
-    default: Date.now
+    default: 'Belum Pulang'
   }
 });
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | SiBeta</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <h2 class="logo">SiBeta</h2>
+
+    <nav>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="datang.html">Input Tamu</a>
+      <a href="rekap.html">Rekap</a>
+      <a href="/logout" class="logout">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+    <header class="header">
+      <h1>Dashboard</h1>
+      <p>Data tamu hari ini</p>
+    </header>
+
+    <!-- CARD RINGKASAN -->
+    <section class="cards">
+      <div class="card">
+        <h3>Total Tamu</h3>
+        <p id="totalTamu">0</p>
+      </div>
+      <div class="card success">
+        <h3>Sudah Pulang</h3>
+        <p id="pulang">0</p>
+      </div>
+      <div class="card warning">
+        <h3>Belum Pulang</h3>
+        <p id="belum">0</p>
+      </div>
+    </section>
+
+    <!-- TABEL -->
+    <section class="table-section">
+      <h2>Daftar Tamu Hari Ini</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Instansi</th>
+            <th>Keperluan</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="guestTable">
+          <tr>
+            <td colspan="4" class="loading">Memuat data...</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    async function loadDashboard() {
+      const res = await fetch('/api/guest/today');
+      const data = await res.json();
+
+      document.getElementById('totalTamu').textContent = data.length;
+
+      const pulang = data.filter(g => g.status === 'Sudah Pulang').length;
+      const belum = data.filter(g => g.status !== 'Sudah Pulang').length;
+
+      document.getElementById('pulang').textContent = pulang;
+      document.getElementById('belum').textContent = belum;
+
+      const tbody = document.getElementById('guestTable');
+      tbody.innerHTML = '';
+
+      if (data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="loading">Belum ada data</td></tr>`;
+        return;
+      }
+
+      data.forEach(g => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${g.nama}</td>
+            <td>${g.instansi}</td>
+            <td>${g.keperluan}</td>
+            <td class="${g.status === 'Sudah Pulang' ? 'green' : 'orange'}">
+              ${g.status}
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    loadDashboard();
+  </script>
+</body>
+</html>

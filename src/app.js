@@ -24,7 +24,7 @@ app.use(session({
 // ===== Routes =====
 app.use('/login', authRoutes);
 app.use('/logout', authRoutes);
-app.use('/api/guest', guestRoutes);
+app.use('/api/guests', guestRoutes);
 
 // ===== View Engine =====
 app.set('views', path.join(__dirname, 'views'));
