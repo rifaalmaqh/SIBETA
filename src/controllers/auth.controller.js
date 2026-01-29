@@ -1,48 +1,67 @@
 const User = require('../../models/users');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-/**
- * =========================
- * LOGIN ADMIN
- * =========================
- */
+console.log('LOGIN CONTROLLER KEHIT');
 exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
 
+    // 1️⃣ Cek input
     if (!username || !password) {
-      return res.status(400).json({ message: 'Username dan password wajib diisi' });
+      return res.status(400).json({
+        message: 'Username dan password wajib diisi'
+      });
     }
 
+    // 2️⃣ Cari user
     const user = await User.findOne({ username });
     if (!user) {
-      return res.status(401).json({ message: 'Akun tidak ditemukan' });
+      return res.status(401).json({
+        message: 'Username atau password salah'
+      });
     }
 
+    // 3️⃣ Cek password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ message: 'Password salah' });
+      return res.status(401).json({
+        message: 'Username atau password salah'
+      });
     }
 
-    // Simpan session
+    // 4️⃣ Simpan session (INI YANG DIPAKAI DASHBOARD)
     req.session.user = {
       id: user._id,
-      username: user.username
+      username: user.username,
+      role: user.role
     };
 
-    res.json({ message: 'Login berhasil' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+    // 5️⃣ (OPSIONAL) Generate JWT
+    const token = jwt.sign(
+      {
+        id: user._id,
+        username: user.username,
+        role: user.role
+      },
+      process.env.JWT_SECRET || 'sibeta-secret',
+      { expiresIn: '1d' }
+    );
 
-/**
- * =========================
- * LOGOUT
- * =========================
- */
-exports.logout = (req, res) => {
-  req.session.destroy(() => {
-    res.json({ message: 'Logout berhasil' });
-  });
+    // 6️⃣ Response sukses
+    res.status(200).json({
+      message: 'Login berhasil',
+      token, // boleh dipakai / diabaikan
+      user: {
+        username: user.username,
+        role: user.role
+      }
+    });
+
+  } catch (error) {
+    console.error('LOGIN ERROR:', error);
+    res.status(500).json({
+      message: 'Server error'
+    });
+  }
 };

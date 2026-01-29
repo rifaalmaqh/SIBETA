@@ -22,12 +22,20 @@ app.use(session({
 }));
 
 // ===== Routes =====
-app.use('/login', authRoutes);
+app.use('/auth', authRoutes);
 app.use('/logout', authRoutes);
 app.use('/api/guests', guestRoutes);
 
 // ===== View Engine =====
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.get('/terimakasih.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/terimakasih.html'));
+});
+
+app.get('/welcome.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/welcome.html'));
+});
 
 module.exports = app;

@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F8FAFC, #EEF4FF);
+  color: #111827;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ===== GLOW ===== */
+.bg-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  filter: blur(120px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.bg-glow.blue {
+  background: #2F80ED;
+  top: -120px;
+  left: -120px;
+}
+
+.bg-glow.cyan {
+  background: #56CCF2;
+  bottom: -120px;
+  right: -120px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 24px;
+}
+
+/* ===== FORM CARD ===== */
+.form-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  width: 100%;
+  max-width: 760px;
+  padding: 44px 48px;
+  border-radius: 14px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TITLE ===== */
+.form-card h1 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.form-card p {
+  font-size: 13.5px;
+  color: #6B7280;
+  margin-bottom: 28px;
+}
+
+/* ===== FORM ===== */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #E5E7EB;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2F80ED;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.15);
+}
+
+/* ===== ACTION BUTTON ===== */
+.actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* PRIMARY 3D */
+.btn-primary {
+  background: linear-gradient(180deg, #2F80ED, #1C6ED5);
+  color: white;
+  box-shadow:
+    0 10px 0 #1C6ED5,
+    0 22px 32px rgba(47, 128, 237, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary:active {
+  transform: translateY(6px);
+  box-shadow:
+    0 4px 0 #1C6ED5,
+    0 10px 16px rgba(47, 128, 237, 0.3);
+}
+
+/* SECONDARY */
+.btn-secondary {
+  background: white;
+  color: #2F80ED;
+  border: 2px solid #2F80ED;
+  box-shadow:
+    0 10px 0 #EAF2FF,
+    0 20px 26px rgba(47, 128, 237, 0.22);
+}
+
+.btn-secondary:hover {
+  background: #EAF2FF;
+  transform: translateY(-3px);
+}
+
+.btn-secondary:active {
+  transform: translateY(6px);
+}
