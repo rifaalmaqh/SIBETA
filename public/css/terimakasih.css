@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F8FAFC, #EEF4FF);
+  overflow: hidden;
+  color: #111827;
+}
+
+/* ===== GLOW EFFECT ===== */
+.bg-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.bg-glow.blue {
+  background: #2F80ED;
+  top: -120px;
+  left: -120px;
+}
+
+.bg-glow.cyan {
+  background: #56CCF2;
+  bottom: -140px;
+  right: -140px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== THANK YOU CARD ===== */
+.hero-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  padding: 90px 100px;   /* 🔥 DIPERBESAR */
+  border-radius: 32px;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+  box-shadow:
+    0 50px 90px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  animation: floatIn 0.8s ease;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== TEXT ===== */
+.hero-card h1 {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.hero-card p {
+  font-size: 17px;
+  color: #6B7280;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown {
+  font-size: 15px;
+  color: #6B7280;
+}
+
+.countdown span {
+  font-weight: 700;
+  color: #2F80ED;
+  font-size: 18px;
+}

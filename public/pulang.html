@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Tamu Pulang</title>
+  <link rel="stylesheet" href="css/pulang.css">
+</head>
+<body>
+
+  <!-- GLOW -->
+  <div class="bg-glow blue"></div>
+  <div class="bg-glow cyan"></div>
+
+  <div class="container">
+    <div class="form-card">
+
+      <h1>Daftar Tamu Hari Ini</h1>
+      <p>Silakan cari nama tamu dan tandai jika sudah pulang</p>
+
+      <!-- SEARCH -->
+      <div class="form-group">
+        <label for="searchNama">Cari Nama Tamu</label>
+        <input
+          type="text"
+          id="searchNama"
+          placeholder="Ketik nama tamu..."
+        >
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Instansi</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="guestTableBody">
+            <!-- Contoh data -->
+            <tr>
+              <td>1</td>
+              <td>Andi Wijaya</td>
+              <td>PT Maju Jaya</td>
+              <td>
+                <span class="status belum">Belum Pulang</span>
+              </td>
+              <td>
+                <button class="aksi pulang">Pulang</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ACTION -->
+      <div class="actions">
+        <a href="welcome.html" class="btn btn-secondary">Kembali</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/pulang.js"></script>
+</body>
+</html>
