@@ -26,22 +26,23 @@
       <p>Data tamu berdasarkan rentang tanggal</p>
     </header>
 
-    <!-- FILTER -->
+    <!-- ===== FILTER ===== -->
     <section class="filter-section">
       <div class="filter-group">
-        <label>Tanggal Mulai</label>
-        <input type="date" id="startDate">
+        <label for="startDate">Tanggal Mulai</label>
+        <input type="date" id="startDate" />
       </div>
 
       <div class="filter-group">
-        <label>Tanggal Akhir</label>
-        <input type="date" id="endDate">
+        <label for="endDate">Tanggal Akhir</label>
+        <input type="date" id="endDate" />
       </div>
 
+      <!-- PENTING: id HARUS btnFilter -->
       <button class="btn-primary" id="btnFilter">Tampilkan</button>
     </section>
 
-    <!-- TABLE -->
+    <!-- ===== TABLE ===== -->
     <section class="table-section">
       <h2>Hasil Rekap</h2>
 
@@ -52,17 +53,26 @@
             <th>Instansi</th>
             <th>Keperluan</th>
             <th>Tanggal</th>
+            <th>Jam Datang</th>
+            <th>Jam Pulang</th>
             <th>Status</th>
           </tr>
         </thead>
+
+        <!-- PENTING: id HARUS rekapTable -->
         <tbody id="rekapTable">
           <tr>
-            <td colspan="5" class="loading">Silakan pilih tanggal</td>
+            <td colspan="7" class="loading">
+              Silakan pilih tanggal lalu klik Tampilkan
+            </td>
           </tr>
         </tbody>
       </table>
     </section>
   </main>
 
+  <!-- ✅ INI YANG TADI HILANG -->
+  <!-- JS HARUS DI AKHIR BODY -->
+  <script src="js/rekap.js"></script>
 </body>
 </html>

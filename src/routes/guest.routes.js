@@ -10,5 +10,8 @@ router.get('/today', guestController.getGuestsToday);
 
 router.put('/:id/pulang', guestController.setGuestPulang);
 
+// REKAP BERDASARKAN TANGGAL
+router.get('/rekap', guestController.getRekapByDate);
+
 module.exports = router;
 

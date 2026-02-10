@@ -11,9 +11,6 @@ body {
   color: #111827;
 }
 
-/* =====================
-   SIDEBAR
-===================== */
 .sidebar {
   width: 240px;
   min-height: 100vh;
@@ -63,9 +60,6 @@ body {
   color: white;
 }
 
-/* =====================
-   MAIN
-===================== */
 .main {
   flex: 1;
   padding: 32px;
@@ -83,9 +77,6 @@ body {
   color: #6B7280;
 }
 
-/* =====================
-   CARDS
-===================== */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -98,7 +89,7 @@ body {
   border-radius: 14px;
   padding: 22px 24px;
   position: relative;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 25px rgba(11, 135, 211, 0.08);
   transition: 0.3s ease;
 }
 
@@ -127,28 +118,25 @@ body {
 .card p {
   font-size: 34px;
   font-weight: 700;
+  color: #2F80ED;
 }
 
-/* VARIASI WARNA STRIP */
 .card.success::before {
   background: #22C55E;
 }
 
-.card.warning::before {
-  background: #F59E0B;
+.card.danger::before {
+  background: #EF4444;
 }
 
 .card.success p {
   color: #22C55E;
 }
 
-.card.warning p {
-  color: #F59E0B;
+.card.danger p {
+  color: #EF4444;
 }
 
-/* =====================
-   TABLE
-===================== */
 .table-section {
   background: #FFFFFF;
   border-radius: 16px;
@@ -182,8 +170,8 @@ th {
   font-weight: 600;
 }
 
-.orange {
-  color: #F59E0B;
+.red {
+  color: #EF4444;
   font-weight: 600;
 }
 

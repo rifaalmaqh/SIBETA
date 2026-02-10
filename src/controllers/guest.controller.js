@@ -20,6 +20,10 @@ exports.createGuest = async (req, res) => {
       catatan
     });
 
+    // Emit event ke semua client dashboard
+    const io = req.app.get('io');
+    if (io) io.emit('guest:created', guest);
+
     res.status(201).json({
       message: 'Tamu berhasil dicatat',
       data: guest
@@ -60,13 +64,48 @@ exports.getGuestsToday = async (req, res) => {
 
 exports.setGuestPulang = async (req, res) => {
   try {
-    await Guest.findByIdAndUpdate(req.params.id, {
+    const updated = await Guest.findByIdAndUpdate(req.params.id, {
       status: 'Sudah Pulang',
       jamPulang: new Date()
-    });
+    }, { new: true });
+
+    // Emit event ke semua client dashboard
+    const io = req.app.get('io');
+    if (io) io.emit('guest:updated', updated);
 
     res.json({ message: 'Status diperbarui' });
   } catch (err) {
     res.status(500).json({ message: 'Gagal update' });
+  }
+};
+
+//REKAP
+
+exports.getRekapByDate = async (req, res) => {
+  try {
+    const { start, end } = req.query;
+
+    if (!start || !end) {
+      return res.status(400).json({ message: 'Tanggal tidak lengkap' });
+    }
+
+    const startDate = new Date(start);
+    startDate.setHours(0, 0, 0, 0);
+
+    const endDate = new Date(end);
+    endDate.setHours(23, 59, 59, 999);
+
+    const guests = await Guest.find({
+      tanggal: {
+        $gte: startDate,
+        $lte: endDate
+      }
+    }).sort({ jamDatang: 1 });
+
+    res.json({ data: guests });
+
+  } catch (err) {
+    console.error('GET REKAP ERROR:', err);
+    res.status(500).json({ message: 'Server error' });
   }
 };

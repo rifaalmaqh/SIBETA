@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 /* ===== BODY ===== */
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #F8FAFC, #EEF4FF);
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
   overflow: hidden;
   color: #111827;
 }
@@ -25,13 +25,13 @@ body {
 }
 
 .bg-glow.blue {
-  background: #2F80ED;
+  background: #2f80ed;
   top: -100px;
   left: -100px;
 }
 
 .bg-glow.cyan {
-  background: #56CCF2;
+  background: #56ccf2;
   bottom: -120px;
   right: -120px;
 }
@@ -79,7 +79,7 @@ body {
 
 .hero-card p {
   font-size: 16px;
-  color: #6B7280;
+  color: #6b7280;
   line-height: 1.6;
   margin-bottom: 55px;
 }
@@ -95,53 +95,95 @@ body {
 .btn {
   min-width: 170px;
   padding: 15px 0;
-  border-radius: 16px;
+  border-radius: 18px;
   font-size: 16px;
   font-weight: 600;
-  text-decoration: none;
   text-align: center;
-  transition: 0.25s ease;
-  position: relative;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
 }
 
-/* ===== PRIMARY 3D BUTTON ===== */
+/* ===== DATANG (PRIMARY – SOFT BLUE 3D) ===== */
 .btn-primary {
-  background: linear-gradient(180deg, #2F80ED, #1C6ED5);
-  color: white;
+  background: #2f80ed;
+  color: #ffffff;
+
   box-shadow:
-    0 10px 0 #1C6ED5,
-    0 25px 40px rgba(47, 128, 237, 0.45);
+    0 14px 30px rgba(47, 128, 237, 0.35),
+    0 6px 0 #1c6ed5;
 }
 
 .btn-primary:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .btn-primary:active {
-  transform: translateY(6px);
+  transform: translateY(5px);
   box-shadow:
-    0 4px 0 #1C6ED5,
-    0 10px 18px rgba(47, 128, 237, 0.35);
+    0 6px 14px rgba(47, 128, 237, 0.35),
+    0 2px 0 #1c6ed5;
 }
 
-/* ===== SECONDARY 3D BUTTON ===== */
+/* ===== PULANG (SECONDARY – SOFT WHITE 3D) ===== */
 .btn-secondary {
-  background: #FFFFFF;
-  color: #2F80ED;
-  border: 2px solid #2F80ED;
+  background: #ffffff;
+  color: #2f80ed;
+
+  outline: 1px solid rgba(47, 128, 237, 0.18);
+  outline-offset: -1px;
+
   box-shadow:
-    0 10px 0 #EAF2FF,
-    0 25px 35px rgba(47, 128, 237, 0.25);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 14px 28px rgba(0, 0, 0, 0.12),
+    0 6px 0 #e5eeff;
+
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: #EAF2FF;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .btn-secondary:active {
+  transform: translateY(5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 6px 14px rgba(0, 0, 0, 0.12),
+    0 2px 0 #e5eeff;
+}
+
+/* ===== MINIMAL 3D BACK BUTTON ===== */
+.back-btn {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: none;
+  background: #ffffff;
+  color: #2f80ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 0 #e5eeff,
+    0 18px 28px rgba(47, 128, 237, 0.18);
+
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+}
+
+.back-btn:active {
   transform: translateY(6px);
   box-shadow:
-    0 4px 0 #EAF2FF,
-    0 10px 18px rgba(47, 128, 237, 0.2);
+    0 3px 0 #e5eeff,
+    0 10px 16px rgba(47, 128, 237, 0.18);
 }

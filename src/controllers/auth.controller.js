@@ -65,3 +65,14 @@ exports.login = async (req, res) => {
     });
   }
 };
+
+// LOGOUT
+exports.logout = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('LOGOUT ERROR:', err);
+      return res.status(500).json({ message: 'Logout gagal' });
+    }
+    res.redirect('/login.html');
+  });
+};

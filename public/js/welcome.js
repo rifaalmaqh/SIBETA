@@ -1,16 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const btnDatang = document.getElementById('btnDatang');
-  const btnPulang = document.getElementById('btnPulang');
+document.addEventListener("DOMContentLoaded", () => {
+  const btnDatang = document.getElementById("btnDatang");
+  const btnPulang = document.getElementById("btnPulang");
+  const backBtn = document.getElementById("backDashboard");
 
-  // 👉 nanti bisa ditambah cek session di sini
-  // contoh (future):
-  // fetch('/api/auth/check')
-
-  btnDatang.addEventListener('click', () => {
-    window.location.href = '/datang.html';
+  btnDatang.addEventListener("click", () => {
+    window.location.href = "/datang.html";
   });
 
-  btnPulang.addEventListener('click', () => {
-    window.location.href = '/pulang.html';
+  btnPulang.addEventListener("click", () => {
+    window.location.href = "/pulang.html";
+  });
+
+  // BACK TO DASHBOARD
+  backBtn.addEventListener("click", () => {
+    window.location.href = "/dashboard.html";
   });
 });

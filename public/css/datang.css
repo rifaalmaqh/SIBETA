@@ -2,18 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #F8FAFC, #EEF4FF);
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
   color: #111827;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* ===== GLOW ===== */
 .bg-glow {
   position: absolute;
   width: 380px;
@@ -24,18 +23,17 @@ body {
 }
 
 .bg-glow.blue {
-  background: #2F80ED;
+  background: #2f80ed;
   top: -120px;
   left: -120px;
 }
 
 .bg-glow.cyan {
-  background: #56CCF2;
+  background: #56ccf2;
   bottom: -120px;
   right: -120px;
 }
 
-/* ===== CONTAINER ===== */
 .container {
   position: relative;
   z-index: 1;
@@ -46,7 +44,6 @@ body {
   padding: 48px 24px;
 }
 
-/* ===== FORM CARD ===== */
 .form-card {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
@@ -71,7 +68,6 @@ body {
   }
 }
 
-/* ===== TITLE ===== */
 .form-card h1 {
   font-size: 26px;
   margin-bottom: 6px;
@@ -79,11 +75,10 @@ body {
 
 .form-card p {
   font-size: 13.5px;
-  color: #6B7280;
+  color: #6b7280;
   margin-bottom: 28px;
 }
 
-/* ===== FORM ===== */
 .form-group {
   margin-bottom: 16px;
 }
@@ -100,7 +95,7 @@ body {
   width: 100%;
   padding: 13px 14px;
   border-radius: 10px;
-  border: 1.5px solid #E5E7EB;
+  border: 1.5px solid #e5e7eb;
   font-size: 14px;
   transition: 0.25s;
 }
@@ -108,18 +103,16 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #2F80ED;
+  border-color: #2f80ed;
   box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.15);
 }
 
-/* ===== ACTION BUTTON ===== */
 .actions {
   margin-top: 30px;
   display: flex;
   gap: 16px;
 }
 
-/* ===== BUTTON ===== */
 .btn {
   flex: 1;
   padding: 14px 0;
@@ -133,13 +126,13 @@ body {
   transition: 0.25s ease;
 }
 
-/* PRIMARY 3D */
 .btn-primary {
-  background: linear-gradient(180deg, #2F80ED, #1C6ED5);
-  color: white;
+  background: #2f80ed;
+  color: #ffffff;
+
   box-shadow:
-    0 10px 0 #1C6ED5,
-    0 22px 32px rgba(47, 128, 237, 0.4);
+    0 14px 30px rgba(47, 128, 237, 0.35),
+    0 6px 0 #1c6ed5;
 }
 
 .btn-primary:hover {
@@ -147,27 +140,35 @@ body {
 }
 
 .btn-primary:active {
-  transform: translateY(6px);
+  transform: translateY(5px);
   box-shadow:
-    0 4px 0 #1C6ED5,
-    0 10px 16px rgba(47, 128, 237, 0.3);
+    0 6px 14px rgba(47, 128, 237, 0.35),
+    0 2px 0 #1c6ed5;
 }
 
-/* SECONDARY */
 .btn-secondary {
-  background: white;
-  color: #2F80ED;
-  border: 2px solid #2F80ED;
+  background: #ffffff;
+  color: #2f80ed;
+
+  outline: 1px solid rgba(47, 128, 237, 0.18);
+  outline-offset: -1px;
+
   box-shadow:
-    0 10px 0 #EAF2FF,
-    0 20px 26px rgba(47, 128, 237, 0.22);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 14px 28px rgba(0, 0, 0, 0.12),
+    0 6px 0 #e5eeff;
+
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: #EAF2FF;
   transform: translateY(-3px);
 }
 
 .btn-secondary:active {
-  transform: translateY(6px);
+  transform: translateY(5px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 6px 14px rgba(0, 0, 0, 0.12),
+    0 2px 0 #e5eeff;
 }

@@ -25,7 +25,7 @@ loginForm.addEventListener('submit', async (e) => {
   }
 
   try {
-    const response = await fetch('/login/login', { // 🔥 INI YANG DIUBAH
+    const response = await fetch('/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

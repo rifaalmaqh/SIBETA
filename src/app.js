@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const authRoutes = require('./routes/auth.routes');
+const { protectRoute } = require('./routes/auth.routes');
+const authController = require('./controllers/auth.controller');
 const guestRoutes = require('./routes/guest.routes');
 
 const app = express();
@@ -23,8 +25,17 @@ app.use(session({
 
 // ===== Routes =====
 app.use('/auth', authRoutes);
-app.use('/logout', authRoutes);
+app.get('/logout', authController.logout);
 app.use('/api/guests', guestRoutes);
+
+// ===== PROTECT HALAMAN DASHBOARD & WELCOME =====
+app.get('/dashboard.html', protectRoute, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/dashboard.html'));
+});
+
+app.get('/welcome.html', protectRoute, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/welcome.html'));
+});
 
 // ===== View Engine =====
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +45,8 @@ app.get('/terimakasih.html', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/terimakasih.html'));
 });
 
-app.get('/welcome.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/welcome.html'));
+app.get('/rekap.html', protectRoute, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/rekap.html'));
 });
 
 module.exports = app;

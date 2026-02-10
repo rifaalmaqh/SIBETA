@@ -1,34 +1,78 @@
+const socket = io({
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionDelayMax: 5000,
+  reconnectionAttempts: 5
+});
+
 async function loadDashboard() {
-  const res = await fetch('/api/guest/today');
-  const data = await res.json();
+  try {
+    const res = await fetch('/api/guests/today');
+    if (!res.ok) throw new Error('Gagal fetch data dashboard');
 
-  const table = document.getElementById('guestTable');
-  table.innerHTML = '';
+    const result = await res.json();
+    updateDashboard(result.data);
 
-  let belumPulang = 0;
-  let sudahPulang = 0;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function updateDashboard(data) {
+  // ===== CARD =====
+  document.getElementById('totalTamu').textContent = data.length;
+
+  const pulang = data.filter(g => g.status === 'Sudah Pulang').length;
+  const belum = data.filter(g => g.status === 'Belum Pulang').length;
+
+  document.getElementById('pulang').textContent = pulang;
+  document.getElementById('belum').textContent = belum;
+
+  // ===== TABLE =====
+  const tbody = document.getElementById('guestTable');
+  tbody.innerHTML = '';
+
+  if (data.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4" class="loading">Belum ada data hari ini</td>
+      </tr>
+    `;
+    return;
+  }
 
   data.forEach(g => {
-    const status = g.pulangAt ? 'Pulang' : 'Datang';
-
-    if (g.pulangAt) sudahPulang++;
-    else belumPulang++;
-
-    table.innerHTML += `
+    tbody.innerHTML += `
       <tr>
-        <td>${g.name}</td>
-        <td>${g.institution || '-'}</td>
-        <td>${g.purpose}</td>
-        <td class="${status === 'Pulang' ? 'done' : 'ongoing'}">
-          ${status}
+        <td>${g.nama}</td>
+        <td>${g.instansi}</td>
+        <td>${g.keperluan}</td>
+        <td class="${g.status === 'Sudah Pulang' ? 'green' : 'red'}">
+          ${g.status}
         </td>
       </tr>
     `;
   });
-
-  document.getElementById('totalToday').innerText = data.length;
-  document.getElementById('belumPulang').innerText = belumPulang;
-  document.getElementById('sudahPulang').innerText = sudahPulang;
 }
 
-document.addEventListener('DOMContentLoaded', loadDashboard);
+// LOAD AWAL
+loadDashboard();
+
+// REAL-TIME LISTENER - Ganti setInterval dengan Socket.io
+socket.on('guest:created', () => {
+  console.log('📢 Ada tamu baru!');
+  loadDashboard();
+});
+
+socket.on('guest:updated', () => {
+  console.log('✏️ Status tamu diperbarui!');
+  loadDashboard();
+});
+
+socket.on('connect', () => {
+  console.log('✅ Terhubung ke server (Socket.io)');
+});
+
+socket.on('disconnect', () => {
+  console.log('❌ Terputus dari server');
+});
