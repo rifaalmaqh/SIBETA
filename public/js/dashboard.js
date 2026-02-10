@@ -19,7 +19,6 @@ async function loadDashboard() {
 }
 
 function updateDashboard(data) {
-  // ===== CARD =====
   document.getElementById('totalTamu').textContent = data.length;
 
   const pulang = data.filter(g => g.status === 'Sudah Pulang').length;
@@ -28,7 +27,6 @@ function updateDashboard(data) {
   document.getElementById('pulang').textContent = pulang;
   document.getElementById('belum').textContent = belum;
 
-  // ===== TABLE =====
   const tbody = document.getElementById('guestTable');
   tbody.innerHTML = '';
 
@@ -55,24 +53,22 @@ function updateDashboard(data) {
   });
 }
 
-// LOAD AWAL
 loadDashboard();
 
-// REAL-TIME LISTENER - Ganti setInterval dengan Socket.io
 socket.on('guest:created', () => {
-  console.log('📢 Ada tamu baru!');
+  console.log('da tamu baru!');
   loadDashboard();
 });
 
 socket.on('guest:updated', () => {
-  console.log('✏️ Status tamu diperbarui!');
+  console.log('Status tamu diperbarui!');
   loadDashboard();
 });
 
 socket.on('connect', () => {
-  console.log('✅ Terhubung ke server (Socket.io)');
+  console.log('Terhubung ke server (Socket.io)');
 });
 
 socket.on('disconnect', () => {
-  console.log('❌ Terputus dari server');
+  console.log('Terputus dari server');
 });

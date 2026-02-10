@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "/pulang.html";
   });
 
-  // BACK TO DASHBOARD
+  //balik ke dashboard
   backBtn.addEventListener("click", () => {
     window.location.href = "/dashboard.html";
   });

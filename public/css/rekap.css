@@ -11,9 +11,7 @@ body {
   color: #111827;
 }
 
-/* =====================
-   SIDEBAR
-===================== */
+/*sidebar*/
 .sidebar {
   width: 240px;
   min-height: 100vh;
@@ -55,9 +53,7 @@ body {
   color: white;
 }
 
-/* =====================
-   MAIN
-===================== */
+
 .main {
   flex: 1;
   padding: 32px;
@@ -75,9 +71,6 @@ body {
   color: #6B7280;
 }
 
-/* =====================
-   FILTER
-===================== */
 .filter-section {
   background: #FFFFFF;
   padding: 24px;
@@ -121,9 +114,6 @@ body {
   background: #1C6ED5;
 }
 
-/* =====================
-   TABLE CARD
-===================== */
 .table-section {
   background: #FFFFFF;
   border-radius: 16px;
@@ -135,15 +125,12 @@ body {
   margin-bottom: 18px;
 }
 
-/* =====================
-   TABLE SCROLL FIX
-===================== */
+/*scroll*/
 .table-section table {
   width: 100%;
   border-collapse: collapse;
 }
 
-/* HEADER DIAM */
 .table-section thead {
   display: table;
   width: 100%;
@@ -151,22 +138,19 @@ body {
   background: #F1F5F9;
 }
 
-/* BODY SCROLL */
 .table-section tbody {
   display: block;
-  max-height: calc(100vh - 430px); /* tinggi aman laptop */
+  max-height: calc(100vh - 430px); 
   overflow-y: auto;
   width: 100%;
 }
 
-/* ROW */
 .table-section tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
 
-/* CELL */
 .table-section th,
 .table-section td {
   padding: 14px;

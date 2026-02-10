@@ -3,13 +3,11 @@ const errorMessage = document.getElementById('errorMessage');
 const togglePassword = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
 
-// TOGGLE PASSWORD 👁️
 togglePassword.addEventListener('click', () => {
   passwordInput.type =
     passwordInput.type === 'password' ? 'text' : 'password';
 });
 
-// SUBMIT LOGIN
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -40,8 +38,7 @@ loginForm.addEventListener('submit', async (e) => {
       errorMessage.style.display = 'block';
       return;
     }
-
-    // LOGIN BERHASIL
+    
     window.location.href = '/dashboard.html';
 
   } catch (error) {

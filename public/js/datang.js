@@ -29,6 +29,5 @@ form.addEventListener('submit', async (e) => {
     console.error('FETCH ERROR:', err);
     alert('Server tidak dapat dihubungi');
   }
-     // setelah sukses simpan
     window.location.href = '/terimakasih.html';
 });

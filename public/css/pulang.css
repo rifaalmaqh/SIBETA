@@ -12,7 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== GLOW ===== */
 .bg-glow {
   position: absolute;
   width: 380px;
@@ -34,7 +33,6 @@ body {
   right: -120px;
 }
 
-/* ===== CONTAINER (LEBAR) ===== */
 .container {
   position: relative;
   z-index: 1;
@@ -42,7 +40,6 @@ body {
   padding: 48px 32px;
 }
 
-/* ===== CARD ===== */
 .form-card {
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(12px);
@@ -77,7 +74,6 @@ body {
   margin-bottom: 26px;
 }
 
-/* ===== SEARCH ===== */
 .form-group {
   margin-bottom: 20px;
 }
@@ -103,7 +99,6 @@ body {
   box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.15);
 }
 
-/* ===== TABLE ===== */
 .table-wrapper {
   overflow-x: auto;
 }
@@ -134,7 +129,6 @@ tbody tr {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* ===== STATUS ===== */
 .status {
   padding: 6px 14px;
   border-radius: 999px;
@@ -143,19 +137,16 @@ tbody tr {
   display: inline-block;
 }
 
-/* MERAH */
 .status.pending {
   background: #fee2e2;
   color: #b91c1c;
 }
 
-/* HIJAU */
 .status.done {
   background: #dcfce7;
   color: #166534;
 }
 
-/* ===== ACTION BUTTON ===== */
 .btn-action {
   padding: 6px 14px;
   border: none;
@@ -164,7 +155,7 @@ tbody tr {
   font-weight: 700;
   background: #dcf3fc;
   color: #0088c2;
-  justify-content: center; /* TEXT TENGAH */
+  justify-content: center; 
 }
 
 .btn-action:hover {
@@ -176,7 +167,6 @@ tbody tr {
   box-shadow: 0 2px 0 #1295c1;
 }
 
-/* ===== FOOTER ACTION ===== */
 .actions {
   margin-top: 28px;
   display: flex;
@@ -192,10 +182,8 @@ tbody tr {
   background: #ffffff;
   color: #2f80ed;
 
-  /* garis tipis tapi soft */
   border: 1.5px solid rgba(47, 128, 237, 0.35);
 
-  /* efek 3D */
   box-shadow:
     0 6px 0 rgba(47, 128, 237, 0.25),
     0 12px 24px rgba(0, 0, 0, 0.08);

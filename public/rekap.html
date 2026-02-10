@@ -7,7 +7,6 @@
 </head>
 <body>
 
-  <!-- ===== SIDEBAR ===== -->
   <aside class="sidebar">
     <h2 class="logo">SiBeta</h2>
 
@@ -19,14 +18,12 @@
     </nav>
   </aside>
 
-  <!-- ===== MAIN ===== -->
   <main class="main">
     <header class="header">
       <h1>Rekap Kunjungan</h1>
       <p>Data tamu berdasarkan rentang tanggal</p>
     </header>
 
-    <!-- ===== FILTER ===== -->
     <section class="filter-section">
       <div class="filter-group">
         <label for="startDate">Tanggal Mulai</label>
@@ -38,11 +35,9 @@
         <input type="date" id="endDate" />
       </div>
 
-      <!-- PENTING: id HARUS btnFilter -->
       <button class="btn-primary" id="btnFilter">Tampilkan</button>
     </section>
 
-    <!-- ===== TABLE ===== -->
     <section class="table-section">
       <h2>Hasil Rekap</h2>
 
@@ -59,7 +54,6 @@
           </tr>
         </thead>
 
-        <!-- PENTING: id HARUS rekapTable -->
         <tbody id="rekapTable">
           <tr>
             <td colspan="7" class="loading">
@@ -70,9 +64,6 @@
       </table>
     </section>
   </main>
-
-  <!-- ✅ INI YANG TADI HILANG -->
-  <!-- JS HARUS DI AKHIR BODY -->
   <script src="js/rekap.js"></script>
 </body>
 </html>

@@ -29,8 +29,6 @@
     align-items: center;
   }
   
-  /* ===== LOGIN CARD ===== */
-  
   .login-container {
     width: 100%;
     max-width: 420px;
@@ -43,8 +41,6 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     overflow: hidden;
   }
-  
-  /* ===== HEADER ===== */
   
   .login-header {
     background: var(--primary);
@@ -64,8 +60,6 @@
     opacity: 0.9;
   }
   
-  /* ===== BODY ===== */
-  
   .login-body {
     padding: 32px;
   }
@@ -81,8 +75,6 @@
     font-weight: 600;
     color: var(--text-dark);
   }
-  
-  /* ===== INPUT ===== */
   
   .input-wrapper {
     position: relative;
@@ -115,7 +107,7 @@
     border-color: var(--primary);
   }
   
-  /* ===== PASSWORD TOGGLE ===== */
+  /*PASSWORD*/
   
   .password-wrapper .toggle-password {
     position: absolute;
@@ -129,8 +121,7 @@
     color: var(--text-muted);
   }
   
-  /* ===== BUTTON ===== */
-  
+  /* button */
   .btn-login {
     width: 100%;
     padding: 14px;
@@ -153,8 +144,6 @@
     opacity: 0.7;
     cursor: not-allowed;
   }
-  
-  /* ===== ALERT ===== */
   
   .alert {
     display: none;

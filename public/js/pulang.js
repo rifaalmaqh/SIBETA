@@ -3,9 +3,6 @@ const tableBody = document.getElementById('guestTableBody');
 
 let allGuests = [];
 
-// ===============================
-// LOAD DATA TAMU HARI INI
-// ===============================
 async function loadGuests() {
   try {
     const res = await fetch('/api/guests/today');
@@ -26,9 +23,6 @@ async function loadGuests() {
   }
 }
 
-// ===============================
-// RENDER TABEL
-// ===============================
 function renderTable(data) {
   tableBody.innerHTML = '';
 
@@ -64,9 +58,7 @@ function renderTable(data) {
   });
 }
 
-// ===============================
-// SEARCH REALTIME
-// ===============================
+//  search riltime
 searchInput.addEventListener('input', () => {
   const keyword = searchInput.value.toLowerCase();
 
@@ -77,9 +69,7 @@ searchInput.addEventListener('input', () => {
   renderTable(filtered);
 });
 
-// ===============================
-// SET TAMU PULANG
-// ===============================
+
 async function setPulang(id) {
   const yakin = confirm('Yakin tandai tamu sudah pulang?');
   if (!yakin) return;
@@ -98,5 +88,4 @@ async function setPulang(id) {
   }
 }
 
-// LOAD AWAL
 loadGuests();

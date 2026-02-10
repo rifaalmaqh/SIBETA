@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 const guestController = require('../controllers/guest.controller');
 
-// TAMU DATANG
+// tamu dtng
 router.post('/', guestController.createGuest);
 
-// TAMU HARI INI (UNTUK PULANG & SEARCH)
+// tamu hr ini
 router.get('/today', guestController.getGuestsToday);
 
 router.put('/:id/pulang', guestController.setGuestPulang);
 
-// REKAP BERDASARKAN TANGGAL
+// rekap dr tnggl     
 router.get('/rekap', guestController.getRekapByDate);
 
 module.exports = router;

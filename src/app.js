@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -9,26 +8,21 @@ const guestRoutes = require('./routes/guest.routes');
 
 const app = express();
 
-// ===== Middleware =====
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static files
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Session
 app.use(session({
   secret: 'sibetaSecretKey',
   resave: false,
   saveUninitialized: true,
 }));
 
-// ===== Routes =====
 app.use('/auth', authRoutes);
 app.get('/logout', authController.logout);
 app.use('/api/guests', guestRoutes);
 
-// ===== PROTECT HALAMAN DASHBOARD & WELCOME =====
 app.get('/dashboard.html', protectRoute, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/dashboard.html'));
 });
@@ -37,7 +31,6 @@ app.get('/welcome.html', protectRoute, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/welcome.html'));
 });
 
-// ===== View Engine =====
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

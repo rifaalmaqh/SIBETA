@@ -4,14 +4,12 @@ exports.createGuest = async (req, res) => {
   try {
     const { nama, instansi, keperluan, noHp, catatan } = req.body;
 
-    // Validasi
     if (!nama || !instansi || !keperluan) {
       return res.status(400).json({
         message: 'Nama, instansi, dan keperluan wajib diisi'
       });
     }
 
-    // Simpan ke MongoDB
     const guest = await Guest.create({
       nama,
       instansi,
@@ -20,7 +18,6 @@ exports.createGuest = async (req, res) => {
       catatan
     });
 
-    // Emit event ke semua client dashboard
     const io = req.app.get('io');
     if (io) io.emit('guest:created', guest);
 
@@ -69,7 +66,6 @@ exports.setGuestPulang = async (req, res) => {
       jamPulang: new Date()
     }, { new: true });
 
-    // Emit event ke semua client dashboard
     const io = req.app.get('io');
     if (io) io.emit('guest:updated', updated);
 
@@ -80,7 +76,6 @@ exports.setGuestPulang = async (req, res) => {
 };
 
 //REKAP
-
 exports.getRekapByDate = async (req, res) => {
   try {
     const { start, end } = req.query;

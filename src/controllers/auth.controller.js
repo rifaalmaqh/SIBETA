@@ -7,14 +7,12 @@ exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    // 1️⃣ Cek input
     if (!username || !password) {
       return res.status(400).json({
         message: 'Username dan password wajib diisi'
       });
     }
 
-    // 2️⃣ Cari user
     const user = await User.findOne({ username });
     if (!user) {
       return res.status(401).json({
@@ -22,7 +20,6 @@ exports.login = async (req, res) => {
       });
     }
 
-    // 3️⃣ Cek password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({
@@ -30,14 +27,12 @@ exports.login = async (req, res) => {
       });
     }
 
-    // 4️⃣ Simpan session (INI YANG DIPAKAI DASHBOARD)
     req.session.user = {
       id: user._id,
       username: user.username,
       role: user.role
     };
 
-    // 5️⃣ (OPSIONAL) Generate JWT
     const token = jwt.sign(
       {
         id: user._id,
@@ -48,10 +43,9 @@ exports.login = async (req, res) => {
       { expiresIn: '1d' }
     );
 
-    // 6️⃣ Response sukses
     res.status(200).json({
       message: 'Login berhasil',
-      token, // boleh dipakai / diabaikan
+      token,
       user: {
         username: user.username,
         role: user.role
@@ -66,7 +60,7 @@ exports.login = async (req, res) => {
   }
 };
 
-// LOGOUT
+// logout
 exports.logout = (req, res) => {
   req.session.destroy((err) => {
     if (err) {
