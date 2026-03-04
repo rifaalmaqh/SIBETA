@@ -1,69 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <title>Rekap Data | SiBeta</title>
-  <link rel="stylesheet" href="css/rekap.css" />
-</head>
-<body>
-
-  <aside class="sidebar">
-    <h2 class="logo">SiBeta</h2>
-
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="welcome.html">Input Tamu</a>
-      <a href="rekap.html" class="active">Rekap</a>
-      <a href="/logout" class="logout">Logout</a>
-    </nav>
-  </aside>
-
-  <main class="main">
-    <header class="header">
-      <h1>Rekap Kunjungan</h1>
-      <p>Data tamu berdasarkan rentang tanggal</p>
-    </header>
-
-    <section class="filter-section">
-      <div class="filter-group">
-        <label for="startDate">Tanggal Mulai</label>
-        <input type="date" id="startDate" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rekap Data | SiBeta</title>
+    <link rel="stylesheet" href="css/rekap.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <img src="assets/logo_sibeta.png" alt="SiBeta" class="logo-main" />
+        <h2>SiBeta</h2>
       </div>
-
-      <div class="filter-group">
-        <label for="endDate">Tanggal Akhir</label>
-        <input type="date" id="endDate" />
+      <div class="sidebar-bottom">
+        <nav>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="welcome.html">Input Tamu</a>
+          <a href="rekap.html" class="active">Rekap</a>
+          <a href="/logout" class="logout">Logout</a>
+        </nav>
       </div>
+    </aside>
 
-      <button class="btn-primary" id="btnFilter">Tampilkan</button>
-    </section>
+    <main class="main">
+      <header class="header">
+        <h1>Rekap Kunjungan</h1>
+        <p>Data tamu berdasarkan rentang tanggal</p>
+      </header>
 
-    <section class="table-section">
-      <h2>Hasil Rekap</h2>
+      <section class="filter-section">
+        <div class="filter-group">
+          <label for="startDate">Tanggal Mulai</label>
+          <input type="date" id="startDate" />
+        </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Instansi</th>
-            <th>Keperluan</th>
-            <th>Tanggal</th>
-            <th>Jam Datang</th>
-            <th>Jam Pulang</th>
-            <th>Status</th>
-          </tr>
-        </thead>
+        <div class="filter-group">
+          <label for="endDate">Tanggal Akhir</label>
+          <input type="date" id="endDate" />
+        </div>
 
-        <tbody id="rekapTable">
-          <tr>
-            <td colspan="7" class="loading">
-              Silakan pilih tanggal lalu klik Tampilkan
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-  <script src="js/rekap.js"></script>
-</body>
+        <button class="btn-primary" id="btnFilter">Tampilkan</button>
+      </section>
+
+      <section class="table-section">
+        <h2>Hasil Rekap</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Instansi</th>
+              <th>Keperluan</th>
+              <th>Tanggal</th>
+              <th>Jam Datang</th>
+              <th>Jam Pulang</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="rekapTable">
+            <tr>
+              <td colspan="8" class="loading">Silakan pilih tanggal lalu klik Tampilkan</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <script src="js/rekap.js"></script>
+    <script src="logo.js"></script>
+  </body>
+
+  <div class="logo-wrapper">
+    <img src="assets/logo_smkn1.png" alt="SMKN1" />
+    <img src="assets/logo_sija.png" alt="SIJA" />
+  </div>
 </html>

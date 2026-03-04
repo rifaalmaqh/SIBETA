@@ -2,61 +2,95 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
   display: flex;
-  background: #F8FAFC;
+  min-height: 100vh;
+  background: #f8fafc;
   color: #111827;
 }
+
+/* ================= SIDEBAR ================= */
 
 .sidebar {
   width: 240px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #2F80ED, #1C6ED5);
-  padding: 24px 18px;
-  color: white;
-}
-
-.logo {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
-}
-
-.sidebar nav a {
   display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== BAGIAN PUTIH (LOGO) ===== */
+.sidebar-top {
+  background: #ffffff;
+  padding: 25px 20px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.logo-main {
+  height: 90px; /* jangan terlalu besar */
+  margin-bottom: 6px; /* jarak kecil ke teks */
+}
+
+.sidebar-top h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c6ed5;
+  line-height: 1.1; /* bikin lebih rapat */
+}
+
+/* ===== BAGIAN BIRU (MENU) ===== */
+.sidebar-bottom {
+  flex: 1;
+  background: linear-gradient(180deg, #2f80ed, #1c6ed5);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar-bottom nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-bottom nav a {
   padding: 12px 16px;
   margin-bottom: 10px;
-  color: #EAF2FF;
+  color: #eaf2ff;
   text-decoration: none;
   border-radius: 10px;
-  transition: 0.25s ease;
+  transition: all 0.25s ease;
   font-weight: 500;
 }
 
-.sidebar nav a:hover {
+.sidebar-bottom nav a:hover {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.sidebar nav a.active {
-  background: #FFFFFF;
-  color: #2F80ED;
+.sidebar-bottom nav a.active {
+  background: #ffffff;
+  color: #2f80ed;
   font-weight: 600;
 }
 
-.sidebar nav a.logout {
-  margin-top: 40px;
-  background: rgba(239, 68, 68, 0.15);
-  color: #FFE4E6;
+.sidebar-bottom nav a.logout {
+  margin-top: auto;
+  background: rgba(239, 68, 68, 0.2);
 }
 
-.sidebar nav a.logout:hover {
-  background: #EF4444;
+.sidebar-bottom nav a.logout:hover {
+  background: #ef4444;
   color: white;
 }
 
@@ -74,7 +108,7 @@ body {
 }
 
 .header p {
-  color: #6B7280;
+  color: #6b7280;
 }
 
 .cards {
@@ -85,7 +119,7 @@ body {
 }
 
 .card {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 14px;
   padding: 22px 24px;
   position: relative;
@@ -100,7 +134,7 @@ body {
   top: 0;
   width: 6px;
   height: 100%;
-  background: #2F80ED;
+  background: #2f80ed;
   border-radius: 14px 0 0 14px;
 }
 
@@ -111,34 +145,34 @@ body {
 
 .card h3 {
   font-size: 14px;
-  color: #6B7280;
+  color: #6b7280;
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 34px;
   font-weight: 700;
-  color: #2F80ED;
+  color: #2f80ed;
 }
 
 .card.success::before {
-  background: #22C55E;
+  background: #22c55e;
 }
 
 .card.danger::before {
-  background: #EF4444;
+  background: #f59e0b;
 }
 
 .card.success p {
-  color: #22C55E;
+  color: #22c55e;
 }
 
 .card.danger p {
-  color: #EF4444;
+  color: #f59e0b;
 }
 
 .table-section {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
@@ -154,28 +188,65 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 14px;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 th {
-  background: #F1F5F9;
+  background: #f1f5f9;
   font-size: 14px;
   text-align: left;
 }
 
 .green {
-  color: #22C55E;
+  color: #22c55e;
   font-weight: 600;
 }
 
 .red {
-  color: #EF4444;
+  color: #f59e0b;
   font-weight: 600;
 }
 
 .loading {
   text-align: center;
-  color: #9CA3AF;
+  color: #9ca3af;
+}
+
+.logo-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+  padding: 10px 20px;
+
+  border-radius: 40px 0 0 40px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.logo-wrapper img {
+  height: 40px;
+  width: auto;
+  transition: 0.3s ease;
+}
+
+.logo-wrapper:hover {
+  box-shadow:
+    0 0 10px rgba(115, 120, 124, 0.4),
+    0 0 20px rgba(254, 255, 255, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo-wrapper:hover img {
+  transform: scale(1.05);
 }

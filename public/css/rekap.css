@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
   display: flex;
-  background: #F8FAFC;
+  background: #f8fafc;
   color: #111827;
 }
 
@@ -15,44 +15,83 @@ body {
 .sidebar {
   width: 240px;
   min-height: 100vh;
-  background: linear-gradient(180deg, #2F80ED, #1C6ED5);
-  padding: 24px 18px;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.12);
 }
 
-.logo {
+.sidebar-top {
+  background: #ffffff;
+  padding: 25px 20px 20px;
   text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sidebar nav a {
-  display: block;
+.logo-main {
+  height: 90px;
+  margin-bottom: 6px;
+}
+
+.sidebar-top h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c6ed5;
+  line-height: 1.1;
+}
+
+.sidebar-bottom {
+  flex: 1;
+  background: linear-gradient(180deg, #2f80ed, #1c6ed5);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar-bottom nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-bottom nav a {
   padding: 12px 16px;
   margin-bottom: 10px;
-  color: #EAF2FF;
+  color: #eaf2ff;
   text-decoration: none;
   border-radius: 10px;
-  transition: 0.25s;
+  transition: all 0.25s ease;
+  font-weight: 500;
 }
 
-.sidebar nav a.active {
-  background: #FFFFFF;
-  color: #2F80ED;
+/* Hover */
+.sidebar-bottom nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Active */
+.sidebar-bottom nav a.active {
+  background: #ffffff;
+  color: #2f80ed;
   font-weight: 600;
 }
 
-.sidebar nav a.logout {
-  margin-top: 40px;
-  background: rgba(239, 68, 68, 0.15);
+/* Logout paling bawah */
+.sidebar-bottom nav a.logout {
+  margin-top: auto;
+  background: rgba(239, 68, 68, 0.2);
 }
 
-.sidebar nav a.logout:hover {
-  background: #EF4444;
+.sidebar-bottom nav a.logout:hover {
+  background: #ef4444;
   color: white;
 }
-
 
 .main {
   flex: 1;
@@ -68,18 +107,18 @@ body {
 }
 
 .header p {
-  color: #6B7280;
+  color: #6b7280;
 }
 
 .filter-section {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 24px;
   border-radius: 16px;
   display: flex;
   gap: 20px;
   align-items: end;
   margin-bottom: 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
 .filter-group {
@@ -90,18 +129,18 @@ body {
 
 .filter-group label {
   font-size: 14px;
-  color: #6B7280;
+  color: #6b7280;
 }
 
 .filter-group input {
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid #D1D5DB;
+  border: 1px solid #d1d5db;
 }
 
 .btn-primary {
   padding: 11px 20px;
-  background: #2F80ED;
+  background: #2f80ed;
   color: white;
   border: none;
   border-radius: 10px;
@@ -111,11 +150,11 @@ body {
 }
 
 .btn-primary:hover {
-  background: #1C6ED5;
+  background: #1c6ed5;
 }
 
 .table-section {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
@@ -135,12 +174,12 @@ body {
   display: table;
   width: 100%;
   table-layout: fixed;
-  background: #F1F5F9;
+  background: #f1f5f9;
 }
 
 .table-section tbody {
   display: block;
-  max-height: calc(100vh - 430px); 
+  max-height: calc(100vh - 430px);
   overflow-y: auto;
   width: 100%;
 }
@@ -154,40 +193,92 @@ body {
 .table-section th,
 .table-section td {
   padding: 14px;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid #e5e7eb;
   font-size: 14px;
   text-align: left;
 }
 
 /* STATUS */
 .green {
-  color: #22C55E;
+  color: #22c55e;
   font-weight: 600;
 }
 
 .orange {
-  color: #F59E0B;
+  color: #f59e0b;
   font-weight: 600;
 }
 
 /* LOADING */
 .loading {
   text-align: center;
-  color: #9CA3AF;
+  color: #9ca3af;
 }
 
-/* =====================
-   SCROLLBAR
-===================== */
+/* SCROLLBAR */
 .table-section tbody::-webkit-scrollbar {
   width: 6px;
 }
 
 .table-section tbody::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #cbd5e1;
   border-radius: 6px;
 }
 
 .table-section tbody::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #94a3b8;
+}
+
+/* DELETE*/
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+.logo-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+  padding: 10px 20px;
+
+  /* bentuk kiri melengkung, kanan lurus */
+  border-radius: 40px 0 0 40px;
+
+  /* shadow minimalis */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.logo-wrapper img {
+  height: 40px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+  box-shadow:
+    0 0 10px rgba(115, 120, 124, 0.4),
+    0 0 20px rgba(254, 255, 255, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo-wrapper:hover img {
+  transform: scale(1.05);
 }

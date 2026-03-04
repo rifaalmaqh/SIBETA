@@ -1,16 +1,16 @@
-const searchInput = document.getElementById('searchNama');
-const tableBody = document.getElementById('guestTableBody');
+const searchInput = document.getElementById("searchNama");
+const tableBody = document.getElementById("guestTableBody");
 
 let allGuests = [];
 
+// ambil data tamu hari ini
 async function loadGuests() {
   try {
-    const res = await fetch('/api/guests/today');
-    if (!res.ok) throw new Error('Gagal fetch data');
+    const res = await fetch("/api/guests/today");
+    if (!res.ok) throw new Error("Gagal fetch data");
 
     const result = await res.json();
-
-    allGuests = result.data;
+    allGuests = result.data || [];
 
     renderTable(allGuests);
   } catch (err) {
@@ -23,10 +23,11 @@ async function loadGuests() {
   }
 }
 
+// render tabel
 function renderTable(data) {
-  tableBody.innerHTML = '';
+  tableBody.innerHTML = "";
 
-  if (!data || data.length === 0) {
+  if (data.length === 0) {
     tableBody.innerHTML = `
       <tr>
         <td colspan="5">Data tidak ditemukan</td>
@@ -40,17 +41,19 @@ function renderTable(data) {
       <tr>
         <td>${index + 1}</td>
         <td>${guest.nama}</td>
-        <td>${guest.instansi || '-'}</td>
+        <td>${guest.instansi || "-"}</td>
         <td>
-          <span class="status ${guest.status === 'Sudah Pulang' ? 'done' : 'pending'}">
+          <span class="status ${guest.status === "Sudah Pulang" ? "done" : "pending"}">
             ${guest.status}
           </span>
         </td>
         <td>
           ${
-            guest.status === 'Belum Pulang'
-              ? `<button class="btn-action" onclick="setPulang('${guest._id}')">✔ Pulang</button>`
-              : '✔'
+            guest.status === "Belum Pulang"
+              ? `<button class="btn-action" onclick="setPulang('${guest._id}')">
+                  ✔ Pulang
+                </button>`
+              : "✔"
           }
         </td>
       </tr>
@@ -58,34 +61,33 @@ function renderTable(data) {
   });
 }
 
-//  search riltime
-searchInput.addEventListener('input', () => {
+// search realtime
+searchInput.addEventListener("input", () => {
   const keyword = searchInput.value.toLowerCase();
 
-  const filtered = allGuests.filter(g =>
-    g.nama.toLowerCase().includes(keyword)
-  );
+  const filtered = allGuests.filter((g) => g.nama.toLowerCase().includes(keyword));
 
   renderTable(filtered);
 });
 
-
+// update status pulang
 async function setPulang(id) {
-  const yakin = confirm('Yakin tandai tamu sudah pulang?');
+  const yakin = confirm("Yakin tandai tamu sudah pulang?");
   if (!yakin) return;
 
   try {
     const res = await fetch(`/api/guests/${id}/pulang`, {
-      method: 'PUT'
+      method: "PUT",
     });
 
-    if (!res.ok) throw new Error('Gagal update');
+    if (!res.ok) throw new Error("Gagal update");
 
-    alert('Status berhasil diupdate');
+    alert("Status berhasil diupdate");
     loadGuests();
   } catch (err) {
-    alert('Gagal mengupdate status');
+    alert("Gagal mengupdate status");
   }
 }
 
+// load saat halaman dibuka
 loadGuests();

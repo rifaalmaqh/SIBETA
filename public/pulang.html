@@ -1,50 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Daftar Tamu Pulang</title>
-  <link rel="stylesheet" href="css/pulang.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daftar Tamu Pulang</title>
+    <link rel="stylesheet" href="css/pulang.css" />
+  </head>
+  <body>
+    <div class="bg-glow blue"></div>
+    <div class="bg-glow cyan"></div>
 
-  <div class="bg-glow blue"></div>
-  <div class="bg-glow cyan"></div>
-
-  <div class="container">
-    <div class="form-card">
-
-      <h1>Daftar Tamu Hari Ini</h1>
-      <p>Silakan cari nama tamu dan tandai jika sudah pulang</p>
-
-      <div class="form-group">
-        <label for="searchNama">Cari Nama Tamu</label>
-        <input
-          type="text"
-          id="searchNama"
-          placeholder="Ketik nama tamu..."
-        >
-      </div>
-
-      <div class="taable-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama</th>
-              <th>Instansi</th>
-              <th>Status</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="actions">
-        <a href="welcome.html" class="btn btn-secondary">Kembali</a>
-      </div>
-
+    <div class="logo-wrapper">
+      <img src="assets/logo_smkn1.png" alt="SMKN1" />
+      <img src="assets/logo_sija.png" alt="SIJA" />
     </div>
-  </div>
 
-  <script src="js/pulang.js"></script>
-</body>
+    <div class="container">
+      <div class="form-card">
+        <h1>Daftar Tamu Hari Ini</h1>
+        <p>Silakan cari nama tamu dan tandai jika sudah pulang</p>
+
+        <div class="form-group">
+          <label for="searchNama">Cari Nama Tamu</label>
+          <input type="text" id="searchNama" placeholder="Ketik nama tamu..." />
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Instansi</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+
+            <!-- 🔥 INI YANG KURANG -->
+            <tbody id="guestTableBody">
+              <!-- data dari JS masuk ke sini -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="actions">
+          <a href="welcome.html" class="btn btn-secondary">Kembali</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/pulang.js"></script>
+  </body>
 </html>

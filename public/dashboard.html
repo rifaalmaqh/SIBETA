@@ -1,68 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <title>Dashboard | SiBeta</title>
-  <link rel="stylesheet" href="../css/dashboard.css" />
-</head>
-<body>
-
-  <aside class="sidebar">
-    <h2 class="logo">SiBeta</h2>
-
-    <nav>
-      <a href="dashboard.html" class="active">Dashboard</a>
-      <a href="welcome.html">Input Tamu</a>
-      <a href="rekap.html">Rekap</a>
-      <a href="/logout" class="logout">Logout</a>
-    </nav>
-  </aside>
-
-  <main class="main">
-    <header class="header">
-      <h1>Dashboard</h1>
-      <p>Data tamu hari ini</p>
-    </header>
-
-    <section class="cards">
-      <div class="card">
-        <h3>Total Tamu</h3>
-        <p id="totalTamu">0</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard | SiBeta</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <img src="assets/logo_sibeta.png" alt="SiBeta" class="logo-main" />
+        <h2>SiBeta</h2>
       </div>
 
-      <div class="card success">
-        <h3>Sudah Pulang</h3>
-        <p id="pulang">0</p>
+      <div class="sidebar-bottom">
+        <nav>
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="welcome.html">Input Tamu</a>
+          <a href="rekap.html">Rekap</a>
+          <a href="/logout" class="logout">Logout</a>
+        </nav>
       </div>
+    </aside>
 
-      <div class="card danger">
-        <h3>Belum Pulang</h3>
-        <p id="belum">0</p>
-      </div>
-    </section>
+    <main class="main">
+      <header class="header">
+        <h1>Dashboard</h1>
+        <p>Data tamu hari ini</p>
+      </header>
 
-    <section class="table-section">
-      <h2>Daftar Tamu Hari Ini</h2>
+      <section class="cards">
+        <div class="card">
+          <h3>Total Tamu</h3>
+          <p id="totalTamu">0</p>
+        </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Nama</th>
-            <th>Instansi</th>
-            <th>Keperluan</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="guestTable">
-          <tr>
-            <td colspan="4" class="loading">Memuat data...</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+        <div class="card success">
+          <h3>Sudah Pulang</h3>
+          <p id="pulang">0</p>
+        </div>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="../js/dashboard.js"></script>
-</body>
+        <div class="card danger">
+          <h3>Belum Pulang</h3>
+          <p id="belum">0</p>
+        </div>
+      </section>
+
+      <section class="table-section">
+        <h2>Daftar Tamu Hari Ini</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Instansi</th>
+              <th>Keperluan</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="guestTable">
+            <tr>
+              <td colspan="4" class="loading">Memuat data...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="logo.js"></script>
+  </body>
+
+  <div class="logo-wrapper">
+    <img src="assets/logo_smkn1.png" alt="SMKN1" />
+    <img src="assets/logo_sija.png" alt="SIJA" />
+  </div>
 </html>

@@ -37,7 +37,10 @@ body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: 48px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px 60px;
 }
 
 .form-card {
@@ -155,7 +158,7 @@ tbody tr {
   font-weight: 700;
   background: #dcf3fc;
   color: #0088c2;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .btn-action:hover {
@@ -208,4 +211,44 @@ tbody tr {
   box-shadow:
     0 2px 0 rgba(47, 128, 237, 0.3),
     0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logo-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 20px;
+
+  background: white;
+  padding: 10px 20px;
+
+  /* bentuk kiri melengkung, kanan lurus */
+  border-radius: 40px 0 0 40px;
+
+  /* shadow minimalis */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.logo-wrapper img {
+  height: 40px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.logo-wrapper:hover {
+  box-shadow:
+    0 0 10px rgba(115, 120, 124, 0.4),
+    0 0 20px rgba(254, 255, 255, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo-wrapper:hover img {
+  transform: scale(1.05);
 }
