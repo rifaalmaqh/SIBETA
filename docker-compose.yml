@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    container_name: sibeta_app
+    ports:
+      - "5009:5009"
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/sibeta
+    volumes:
+      - .:/app
+
+  mongo:
+    image: mongo:4.4
+    container_name: sibeta_mongo
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+volumes:
+  mongo_data:

@@ -30,6 +30,16 @@ app.use((req, res, next) => {
   next();
 });
 
+const path = require("path");
+
+// serve folder public
+app.use(express.static(path.join(__dirname, "../public")));
+
+// default route ke login
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static("assets"));
 
