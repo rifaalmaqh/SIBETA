@@ -30,8 +30,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const path = require("path");
-
 // serve folder public
 app.use(express.static(path.join(__dirname, "../public")));
 
